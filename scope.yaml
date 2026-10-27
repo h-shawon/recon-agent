@@ -1,0 +1,12 @@
+# Authorised scope. Only targets listed here will ever be touched.
+# EDIT THIS before running: add only hosts you have written permission to test.
+#
+# domains: exact hostnames, or "*.example.com" wildcards for all subdomains.
+# cidrs:   IPv4/IPv6 networks you are authorised to scan.
+
+domains:
+  - example.com
+  - "*.example.com"
+
+cidrs:
+  - 10.10.0.0/16
