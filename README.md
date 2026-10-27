@@ -67,6 +67,19 @@ python -m recon_agent.cli --scope scope.yaml \
 
 The agent refuses to start if any `--target` is outside `scope.yaml`.
 
+### Offline mode (no API key)
+
+Pass `--offline` to drive the loop with a built-in scripted model instead of
+DeepSeek — it resolves, port-scans and HTTP-probes each target, then writes the
+report. The tools still run for real, but no key or API call is made:
+
+```bash
+python -m recon_agent.cli --scope scope.yaml --target 127.0.0.1 --offline
+```
+
+Handy for trying the agent, demos, and CI. Point it at in-scope loopback or
+RFC-1918 hosts to keep all traffic on your own network.
+
 ## Tests
 
 ```bash
