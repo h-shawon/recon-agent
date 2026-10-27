@@ -14,7 +14,7 @@ Every tool calls a `ScopeGuard` before touching the network. A target is only in
 scope if it matches a rule you wrote in `scope.yaml`. Target strings are also
 sanitised (no shell metacharacters) and every subprocess is called with an
 argument list — never a shell string — so a target can't smuggle in extra
-commands. If the model ever tries an out-of-scope host, the tool refuses and the
+commands. If the model ever tries an out-of-scope host, the tool refuses, and the
 model is told why.
 
 > Only test systems you own or have **written permission** to test.
@@ -22,7 +22,7 @@ model is told why.
 ## Architecture
 
 ```
-          ┌─────────┐   tool calls?   ┌────────┐
+          ┌─────────┐   tool calls?    ┌────────┐
   task ──▶│  agent  │────────yes──────▶│  tools │
           │ (LLM)   │◀────results──────│        │
           └────┬────┘                  └────────┘
